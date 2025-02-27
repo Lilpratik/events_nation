@@ -1,0 +1,22 @@
+# Node.js (MERN Backend)
+backend/node_modules/
+backend/.env
+backend/.DS_Store
+backend/.vscode/
+backend/package-lock.json
+
+# Flutter (Frontend)
+frontend/.dart_tool/
+frontend/.flutter-plugins
+frontend/.flutter-plugins-dependencies
+frontend/.idea/
+frontend/.packages
+frontend/build/
+frontend/.DS_Store
+
+# General
+*.log
+*.lock
+*.tmp
+.DS_Store
+.env
