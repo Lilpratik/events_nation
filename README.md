@@ -58,6 +58,19 @@ npm start</p>
 <p>📱 3. Frontend Setup
 cd frontend
 flutter pub get
-flutter run</p><h2>Project Status</h2>
+flutter run
+</p>
+<p>Screenshots
+ ![Screenshot_20250227-211701](https://github.com/user-attachments/assets/77ce52e2-52b7-4b9d-8110-cc75e5d1552b)
+ ![Screenshot_20250227-211813](https://github.com/user-attachments/assets/f5dc9fab-33d7-451a-832d-1f31111eae34)
+![Screenshot_20250227-211808](https://github.com/user-attachments/assets/629344ef-8d8f-4d5a-bd4d-78e563a3c7ba)
+![Screenshot_20250227-211751](https://github.com/user-attachments/assets/a59b2c91-68a1-48c8-aa8a-49b01e3261fd)
+![Screenshot_20250227-211748](https://github.com/user-attachments/assets/e110ea6d-f744-4728-a022-144cbbea1361)
+![Screenshot_20250227-211636](https://github.com/user-attachments/assets/403b4cd8-9e2c-4748-9289-c1adb01b2e1c)
+![Screenshot_20250227-211629](https://github.com/user-attachments/assets/92e97d4a-f265-4ebd-b46e-04c87c6ae2f9)
+![Screenshot_20250227-211611](https://github.com/user-attachments/assets/ddd7c4eb-8590-4bd7-a500-a3d981495a36)
+
+</p>
+</p><h2>Project Status</h2>
 <hr><p>In Progress</p><h2>Contact</h2>
 <hr><p><span style="margin-right: 30px;"></span><a href="pratikmohite343"><img target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" style="width: 10%;"></a><span style="margin-right: 30px;"></span><a href="Lilpratik"><img target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" style="width: 10%;"></a></p>
