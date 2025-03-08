@@ -130,15 +130,14 @@ class _EventListScreenState extends State<EventListScreen> {
       case 'Supervisor':
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(
-              builder: (context) => const SupervisorEventListScreen()),
+          MaterialPageRoute(builder: (context) => SupervisorEventListScreen()),
         );
         break;
       case 'EventManager':
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-              builder: (context) => EventManagerEventListScreen()),
+              builder: (context) => const EventManagerEventListScreen()),
         );
         break;
       case 'Client':

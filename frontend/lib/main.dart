@@ -10,9 +10,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false, // 👈 Removes the Debug label
       title: 'Event Management App',
-      home: LoginScreen(),
+      home: const LoginScreen(),
     );
   }
 }

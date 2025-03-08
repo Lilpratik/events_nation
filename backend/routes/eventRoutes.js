@@ -4,20 +4,6 @@ const { authMiddleware } = require('../middleware/authMiddleware');
 const User = require('../models/User');
 
 const router = express.Router();
-
-// // Create Event (Admin, Supervisoronly)
-// router.post('/',authMiddleware(['Admin', 'Supervisor']), async (req, res) => {
-//   const { event_name , description, location, start_date, end_date, expected_date, budget, assigned_supervisor, assigned_event_manager, client_id, tasks, progress } = req.body;
-//   try {
-//     const newEvent = new Event({ event_name , description, location, start_date, end_date, expected_date, budget, assigned_supervisor, assigned_event_manager, client_id, tasks: tasks || [], progress: progress || 0 });
-//     await newEvent.save();
-//     res.status(201).json(newEvent);
-//   } catch (error) {
-//     res.status(500).json({ message: 'Server error' });
-//   }
-// });
-
-
 router.post(
   '/',
   authMiddleware(['Admin', 'Supervisor']),
@@ -101,17 +87,6 @@ router.post(
   }
 );
 
-
-// // Get all Event (Admin, Supvervisor)
-// router.get('/', authMiddleware(['Admin', 'Supervisor']), async (req, res) => {
-//   try {
-//     const events = await Event.find().populate('assigned_supervisor assigned_event_manager client_id');
-//     res.json(events);
-//   } catch (error) {
-//     res.status(500).json({ message: 'Server error' });
-//   }
-// });
-
 // Get all events (Admin, Supervisor - but restricted to supervisor's assigned events)
 router.get('/', authMiddleware(['Admin', 'Supervisor']), async (req, res) => {
   try {
@@ -133,16 +108,6 @@ router.get('/', authMiddleware(['Admin', 'Supervisor']), async (req, res) => {
   }
 });
 
-// // Get Event by ID (Supervisor, EventManager, Client)
-// router.get('/:id', authMiddleware(['Supervisor', 'EventManager', 'Client']), async (req, res) => {
-//   try {
-//     const event = await Event.findById(req.params.id).populate('tasks.assigned_to');
-//     if (!event) return res.status(404).json({ message: 'Event not found' });
-//     res.json(event);
-//   } catch (error) {
-//     res.status(500).json({ message: 'Server error' });
-//   }
-// });
 router.get('/:id', authMiddleware(['Admin', 'Supervisor', 'EventManager', 'Client']), async (req, res) => {
   try {
     const { id } = req.params;
@@ -202,14 +167,31 @@ router.get('/user/events', authMiddleware(['Client', 'EventManager']), async (re
 
 
 // Update Event (Supervisor only)
-router.put('/:id', authMiddleware(['Supervisor']), async (req, res) => {
-  try {
-      const event = await Event.findByIdAndUpdate(req.params.id, req.body, { new: true });
-      if (!event) return res.status(404).json({ message: 'Event not found' });
-      res.json(event);
-  } catch (err) {
-      res.status(500).json({ message: 'Server error' });
-  }
+// router.put('/:id', authMiddleware(['Supervisor', 'EventManager']), async (req, res) => {
+//   try {
+//       const event = await Event.findByIdAndUpdate(req.params.id, req.body, { new: true });
+//       if (!event) return res.status(404).json({ message: 'Event not found' });
+//       res.json(event);
+//   } catch (err) {
+//       res.status(500).json({ message: 'Server error' });
+//   }
+// });
+
+// Update an Event (Only Supervisor and EventManager can update)
+router.put('/:id', authMiddleware(['Supervisor', 'EventManager']), async (req, res) => {
+    try {
+        console.log("Updating Event ID:", req.params.id);
+        console.log("Received Body:", req.body);
+
+        const event = await Event.findByIdAndUpdate(req.params.id, req.body, { new: true });
+
+        if (!event) return res.status(404).json({ message: 'Event not found' });
+
+        res.json(event);
+    } catch (err) {
+        console.error("Update Error:", err);
+        res.status(500).json({ message: 'Server error' });
+    }
 });
 
 // Delete Event (Admin only)

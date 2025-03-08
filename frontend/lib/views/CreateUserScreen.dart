@@ -27,7 +27,7 @@ class _CreateUserScreenState extends State<CreateUserScreen> {
 
     try {
       final response = await http.post(
-        Uri.parse('http://192.168.0.106:5000/api/auth/create-user'),
+        Uri.parse('http://192.168.0.108:5000/api/auth/create-user'),
         headers: {
           'Authorization': 'Bearer $token',
           'Content-Type': 'application/json',
